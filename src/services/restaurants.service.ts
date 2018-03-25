@@ -1,16 +1,26 @@
+import { injectable, inject } from 'inversify';
+import 'reflect-metadata';
+
 import { Restaurant } from '../models/restaurant.model';
 import { IRestaurantsService } from './restaurants.service.int';
-import { IRandomNumberService } from './random-number.service.int';
+import { IRandomNumberService, RandomNumberServiceType } from './random-number.service.int';
 
+@injectable()
 export class RestaurantsService implements IRestaurantsService {
 
+  private _restaurants: Restaurant[] = [];
+
   constructor(
-    private _restaurants: Restaurant[],
-    private _randomNumberService: IRandomNumberService
+    @inject(RandomNumberServiceType) private _randomNumberService: IRandomNumberService
   ) { }
+
+  public setRestaurants(restaurants: Restaurant[]): void {
+    this._restaurants = restaurants;
+  }
 
   public getRandomRestaurant(): Restaurant {
     const idx = this._randomNumberService.getRandomInteger(0, this._restaurants.length - 1);
     return this._restaurants[idx];
   }
+
 }

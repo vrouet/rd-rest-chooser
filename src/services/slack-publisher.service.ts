@@ -1,7 +1,10 @@
+import { injectable } from 'inversify';
+import 'reflect-metadata';
 import { WebClient } from  '@slack/client';
 
 import { IPublisherService } from './publisher.service.int';
 
+@injectable()
 export class SlackPublisherService implements IPublisherService {
 
   private _slackClient: WebClient;

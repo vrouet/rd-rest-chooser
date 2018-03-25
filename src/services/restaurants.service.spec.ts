@@ -34,7 +34,8 @@ describe('RestaurantsService', () => {
 
   beforeEach(() => {
     randomNumberService = new RandomNumberServiceStub();
-    serviceInstance = new RestaurantsService(restaurants, randomNumberService);
+    serviceInstance = new RestaurantsService(randomNumberService);
+    serviceInstance.setRestaurants(restaurants);
   });
 
   describe('getRandomRestaurant()', () => {
