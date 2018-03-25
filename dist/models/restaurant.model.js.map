@@ -1,1 +1,1 @@
-{"version":3,"file":"restaurant.model.js","sourceRoot":"","sources":["../../src/models/restaurant.model.ts"],"names":[],"mappings":";;AAAA,IAAY,cAMX;AAND,WAAY,cAAc;IACxB,yDAAO,CAAA;IACP,uDAAM,CAAA;IACN,yDAAO,CAAA;IACP,2DAAQ,CAAA;IACR,mDAAI,CAAA;AACN,CAAC,EANW,cAAc,GAAd,sBAAc,KAAd,sBAAc,QAMzB"}
+{"version":3,"file":"restaurant.model.js","sourceRoot":"","sources":["../../src/models/restaurant.model.ts"],"names":[],"mappings":""}

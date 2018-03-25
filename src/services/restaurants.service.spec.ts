@@ -3,7 +3,6 @@ import * as chai from 'chai';
 import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';
 
-import { RestaurantType } from '../models/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
 import { IRandomNumberService } from './random-number.service.int';
 
@@ -21,16 +20,13 @@ describe('RestaurantsService', () => {
 
   const restaurants = [{
     name: 'L\'Oasis',
-    address: 'C/ Consell de Cent, algo',
-    type: RestaurantType.Fusion
+    address: 'C/ Consell de Cent, algo'
   }, {
     name: 'El Gat Blau',
-    address: 'Somewhere',
-    type: RestaurantType.Catalan
+    address: 'Somewhere'
   }, {
     name: 'Yatai',
-    address: 'Somewhere else',
-    type: RestaurantType.Japanese
+    address: 'Somewhere else'
   }];
 
   let randomNumberService: RandomNumberServiceStub;
