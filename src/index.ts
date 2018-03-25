@@ -1,18 +1,19 @@
 import { Container } from 'inversify';
 
-import { IRestaurantsService, RestaurantsServiceType } from './services/restaurants.service.int';
-import { RestaurantsService } from './services/restaurants.service';
+import { IConfigService, ConfigServiceType } from './services/config.service.int';
+import { ConfigService } from './services/config.service';
 import { IRandomNumberService, RandomNumberServiceType } from './services/random-number.service.int';
 import { RandomNumberService } from './services/random-number.service';
+import { IRestaurantsService, RestaurantsServiceType } from './services/restaurants.service.int';
+import { RestaurantsService } from './services/restaurants.service';
 import { IPublisherService, PublisherServiceType } from './services/publisher.service.int';
 import { SlackPublisherService } from './services/slack-publisher.service';
 
 const container = new Container();
 
+container.bind<IConfigService>(ConfigServiceType).to(ConfigService);
 container.bind<IRandomNumberService>(RandomNumberServiceType).to(RandomNumberService);
-container.bind<IPublisherService>(PublisherServiceType).toConstantValue(
-  new SlackPublisherService(process.env.SLACK_BOT_TOKEN || '')
-);
+container.bind<IPublisherService>(PublisherServiceType).to(SlackPublisherService);
 container.bind<IRestaurantsService>(RestaurantsServiceType).to(RestaurantsService);
 
 const restaurants = [{
