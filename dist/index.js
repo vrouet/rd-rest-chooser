@@ -16,6 +16,6 @@ const service = new restaurants_service_1.RestaurantsService([{
         address: 'Somewhere else',
         type: restaurant_model_1.RestaurantType.Japanese
     }], new random_number_service_1.RandomNumberService());
-const restaurant = service.getRestaurant();
+const restaurant = service.getRandomRestaurant();
 console.log(`Chose ${restaurant.name} (${restaurant.address})`);
 //# sourceMappingURL=index.js.map

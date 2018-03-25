@@ -15,5 +15,5 @@ const service = new RestaurantsService([{
   address: 'Somewhere else',
   type: RestaurantType.Japanese
 }], new RandomNumberService());
-const restaurant = service.getRestaurant();
+const restaurant = service.getRandomRestaurant();
 console.log(`Chose ${restaurant.name} (${restaurant.address})`);

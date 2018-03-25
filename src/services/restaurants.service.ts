@@ -9,7 +9,7 @@ export class RestaurantsService implements IRestaurantsService {
     private _randomNumberService: IRandomNumberService
   ) { }
 
-  public getRestaurant(): Restaurant {
+  public getRandomRestaurant(): Restaurant {
     const idx = this._randomNumberService.getRandomInteger(0, this._restaurants.length - 1);
     return this._restaurants[idx];
   }

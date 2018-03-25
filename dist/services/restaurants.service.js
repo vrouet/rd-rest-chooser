@@ -5,7 +5,7 @@ class RestaurantsService {
         this._restaurants = _restaurants;
         this._randomNumberService = _randomNumberService;
     }
-    getRestaurant() {
+    getRandomRestaurant() {
         const idx = this._randomNumberService.getRandomInteger(0, this._restaurants.length - 1);
         return this._restaurants[idx];
     }

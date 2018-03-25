@@ -41,10 +41,10 @@ describe('RestaurantsService', () => {
     serviceInstance = new RestaurantsService(restaurants, randomNumberService);
   });
 
-  describe('getRestaurant()', () => {
+  describe('getRandomRestaurant()', () => {
 
     it('returns an object', () => {
-      const restaurant = serviceInstance.getRestaurant();
+      const restaurant = serviceInstance.getRandomRestaurant();
 
       restaurant.should.be.an('Object');
     });
@@ -52,7 +52,7 @@ describe('RestaurantsService', () => {
     it('calls RandomNumberService::getRandomInteger() with the right arguments', () => {
       randomNumberService.getRandomInteger = sinon.stub().returns(0);
 
-      serviceInstance.getRestaurant();
+      serviceInstance.getRandomRestaurant();
 
       randomNumberService.getRandomInteger.should.have.been.calledOnce;
       randomNumberService.getRandomInteger.should.have.been.calledWith(0, restaurants.length - 1);
@@ -61,7 +61,7 @@ describe('RestaurantsService', () => {
     it('returns the restaurant at the randomly defined index', () => {
       randomNumberService.getRandomInteger = sinon.stub().returns(1);
 
-      const restaurant = serviceInstance.getRestaurant();
+      const restaurant = serviceInstance.getRandomRestaurant();
 
       restaurant.should.deep.equal(restaurants[1]);
     });
