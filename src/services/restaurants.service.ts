@@ -6,16 +6,16 @@ export class RestaurantsService implements IRestaurantsService {
 
   constructor() {
     this._restaurants = [{
-      name: "L'Oasis",
-      address: "C/ Consell de Cent, algo",
+      name: 'L\'Oasis',
+      address: 'C/ Consell de Cent, algo',
       type: RestaurantType.Fusion
     }, {
-      name: "El Gat Blau",
-      address: "Somewhere",
+      name: 'El Gat Blau',
+      address: 'Somewhere',
       type: RestaurantType.Catalan
     }, {
-      name: "Yatai",
-      address: "Somewhere else",
+      name: 'Yatai',
+      address: 'Somewhere else',
       type: RestaurantType.Japanese
     }];
   }
