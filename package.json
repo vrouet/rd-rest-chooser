@@ -1,0 +1,20 @@
+{
+  "name": "rd-rest-choser",
+  "version": "1.0.0",
+  "description": "Random restaurant chooser",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "author": "Valentin Rouet <v.rouet@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.17.2",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2"
+  }
+}
