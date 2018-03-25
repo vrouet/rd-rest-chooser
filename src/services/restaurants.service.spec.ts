@@ -2,15 +2,23 @@ import 'mocha';
 import * as chai from 'chai';
 
 import { RestaurantsService } from './restaurants.service';
+import { IRandomNumberService } from './random-number.service.int';
 
 chai.should();
+
+class RandomNumberServiceStub implements IRandomNumberService {
+  getRandomInteger(): number {
+    return 1;
+  }
+}
 
 describe('RestaurantsService', () => {
 
   let serviceInstance: RestaurantsService;
 
   beforeEach(() => {
-    serviceInstance = new RestaurantsService();
+    const randomNumberService = new RandomNumberServiceStub();
+    serviceInstance = new RestaurantsService([], randomNumberService);
   });
 
   describe('getRestaurant()', () => {
