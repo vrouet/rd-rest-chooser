@@ -38,6 +38,35 @@ describe('RestaurantsService', () => {
     serviceInstance.setRestaurants(restaurants);
   });
 
+  describe('getRestaurants', () => {
+
+    it('returns all available restaurants', () => {
+      const getRestaurantsResponse = serviceInstance.getRestaurants();
+
+      getRestaurantsResponse.should.deep.equal(restaurants);
+    });
+
+  });
+
+  describe('setRestaurants', () => {
+
+    it('sets the list of available restaurants to the provided Array', () => {
+      const newRestaurants = [{
+        name: 'blabla',
+        address: 'fooooo'
+      }, {
+        name: 'hihihi',
+        address: 'ñeeeee'
+      }];
+
+      serviceInstance.setRestaurants(newRestaurants);
+
+      const getRestaurantsResponse = serviceInstance.getRestaurants();
+      getRestaurantsResponse.should.deep.equal(newRestaurants);
+    });
+
+  });
+
   describe('getRandomRestaurant()', () => {
 
     it('returns an object', () => {

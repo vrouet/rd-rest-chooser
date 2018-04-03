@@ -1,6 +1,7 @@
-import { Restaurant } from '../models/restaurant.model';
+import { Restaurant } from '../models';
 
 export interface IRestaurantsService {
+  getRestaurants(): Restaurant[];
   setRestaurants(restaurants: Restaurant[]): void;
   getRandomRestaurant(): Restaurant;
 }
