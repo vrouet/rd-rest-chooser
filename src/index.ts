@@ -14,14 +14,14 @@ import { SlackPublisherService } from './services/slack-publisher.service';
 import './controllers';
 
 
-const container = new Container();
+const container = new Container({
+  defaultScope: 'Singleton'
+});
 
 container.bind<IConfigService>(ConfigServiceType).to(ConfigService);
 container.bind<IRandomNumberService>(RandomNumberServiceType).to(RandomNumberService);
 container.bind<IPublisherService>(PublisherServiceType).to(SlackPublisherService);
-container.bind<IRestaurantsService>(RestaurantsServiceType).toConstantValue(
-  new RestaurantsService(container.get<IRandomNumberService>(RandomNumberServiceType))
-);
+container.bind<IRestaurantsService>(RestaurantsServiceType).to(RestaurantsService);
 
 const restaurants = [{
     name: 'L\'Oasis',
