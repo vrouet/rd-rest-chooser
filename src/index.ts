@@ -1,6 +1,8 @@
 import { Container } from 'inversify';
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
+import { Application } from 'express';
+import * as BodyParser from 'body-parser';
 
 import { IConfigService, ConfigServiceType } from './services/config.service.int';
 import { ConfigService } from './services/config.service';
@@ -36,6 +38,10 @@ const restaurants = [{
 container.get<IRestaurantsService>(RestaurantsServiceType).setRestaurants(restaurants);
 
 const server = new InversifyExpressServer(container);
+server.setConfig((app: Application) => {
+  app.use(BodyParser.json());
+  app.use(BodyParser.urlencoded());
+});
 export const serverInstance = server.build();
 
 if (require.main === module) {

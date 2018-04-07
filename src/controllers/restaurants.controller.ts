@@ -3,7 +3,6 @@ import { injectable, inject } from 'inversify';
 import { Request, Response } from 'express';
 
 import { IRestaurantsService, RestaurantsServiceType } from '../services/restaurants.service.int';
-import { RestaurantsService } from '../services/restaurants.service';
 
 @controller('/restaurants')
 export class RestaurantsController {
