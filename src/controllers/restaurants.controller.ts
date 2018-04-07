@@ -18,4 +18,10 @@ export class RestaurantsController {
     response.jsonp(restaurants);
   }
 
+  @httpGet('/random')
+  public getRandomRestaurant(request: Request, response: Response): void {
+    const restaurant = this._restaurantsService.getRandomRestaurant();
+    response.jsonp(restaurant);
+  }
+
 }

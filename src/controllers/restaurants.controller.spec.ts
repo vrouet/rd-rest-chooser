@@ -68,4 +68,30 @@ describe('RestaurantsController', () => {
 
   });
 
+  describe('getRandomRestaurant() AKA GET /random', () => {
+
+    it('gets a random restaurant from its RestaurantsService', () => {
+      restaurantsService.getRandomRestaurant = sinon.stub().returns({});
+
+      controllerInstance.getRandomRestaurant(mockReq(), mockRes());
+
+      restaurantsService.getRandomRestaurant.should.have.been.calledOnce;
+    });
+
+    it('calls response.jsonp() with the restaurant provided by the service', () => {
+      const restaurant = {
+        name: 'foo',
+        address: 'bar'
+      };
+      restaurantsService.getRandomRestaurant = sinon.stub().returns(restaurant);
+      const response = mockRes()
+
+      controllerInstance.getRandomRestaurant(mockReq(), response);
+
+      response.jsonp.should.have.been.calledOnce;
+      response.jsonp.should.have.been.calledWith(restaurant);
+    });
+
+  });
+
 });
